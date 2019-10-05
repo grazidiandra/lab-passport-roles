@@ -1,0 +1,40 @@
+<form action="/login" method="POST">
+  <input type="submit" value="Log out">
+</form>
+
+{{#if user}}
+<div>
+  <p>{{user.username}} | {{user.role}} </p>
+  <p>Favorite Food: {{user.favoriteFood}} </p>
+
+  <p>Favorite Character:{{user.favoriteCharacter}} </p>
+  <p>Favorite Color:{{user.favoriteColor}} </p>
+</div>
+{{/if}}
+
+
+<a href="/perfil/users"> <button>PERFIL USERS</button></a>
+{{!-- Apenas BOSS pode visualizar esse botao --}}
+<a href="/adm/add"> <button>ADD USERS</button></a>
+{{!-- Apenas TA pode visualizar esse botao --}}
+<a href="/course/add"> <button>COURSE</button></a>
+
+<br><br>
+<hr>
+
+<h2>EDIT PERFIL</h2>
+<form action="/perfil/{{user._id}}" method="post">
+  <label for="">Name: </label>
+  <input type="text" name="username" value="{{user.username}}">
+
+  <label for="">Favorite Food:</label>
+  <input type="text" name="favoriteFood" value="{{user.favoriteFood}}">
+
+  <label for="">Favorite Character:</label>
+  <input type="text" name="favoriteCharacter" value="{{user.favoriteCharacter}}">
+
+  <label for="">Favorite Color:</label>
+  <input type="text" name="favoriteColor" value="{{user.favoriteColor}}">
+
+  <button type="submit">EDIT</button>
+</form>

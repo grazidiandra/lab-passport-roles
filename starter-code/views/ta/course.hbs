@@ -1,0 +1,30 @@
+<a href="/perfil"> <button>My profile</button></a>
+
+<h2>ADD NEW COURSE</h2>
+<form action="/course/add" method="post">
+  <label for="">Title:</label>
+  <input type="text" name="title">
+
+  <label for="">Description:</label>
+  <input type="text" name="description">
+
+
+  <button type="submit">ADD</button>
+</form>
+
+<br>
+<br>
+
+<hr>
+
+{{#each arrCourse}}
+<div>
+  <p>{{this.title}} | {{this.description}} </p>
+</div>
+<form action="/course/{{this.id}}/delete" method="post">
+  <button type="submit">delete</button>
+</form>
+<a href="/course/{{this.id}}/edit">
+  <button type="submit">edit</button>
+</a>
+{{/each}}

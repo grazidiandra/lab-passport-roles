@@ -1,0 +1,30 @@
+<form action="/login" method="POST">
+  <input type="submit" value="Log out">
+</form>
+
+<h2>ADD NEW USER</h2>
+<form action="/adm/add" method="post">
+  <label for="username">Name:</label>
+  <input type="text" name="username">
+
+  <label for="">Password:</label>
+  <input type="text" name="password">
+
+  <select name="role">
+    <option value="TA">TA</option>
+    <option value="Developer">Developer</option>
+  </select>
+
+  <button type="submit">ADD</button>
+</form>
+<br>
+<br>
+<hr>
+{{#each arrUser}}
+<div>
+  <p>{{this.username}} | {{this.role}} </p>
+</div>
+<form action="/adm/{{this.id}}/delete" method="post">
+  <button type="submit">delete</button>
+</form>
+{{/each}}
