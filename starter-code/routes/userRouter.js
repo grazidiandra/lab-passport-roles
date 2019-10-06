@@ -5,7 +5,11 @@ const ensureLogin = require('connect-ensure-login');
 const User = require('../models/user');
 
 userRouter.get('/', ensureLogin.ensureLoggedIn(), (req, res) => {
-  res.render('perfil/home', {user: req.user});
+  if (req.user.role === 'TA') {
+    res.render('perfil/home', {user: req.user, isTA: true});
+  } else if (req.user.role === 'Boss') {
+    res.render('perfil/home', {user: req.user, isBoss: true});
+  }
 });
 
 userRouter.get('/:id/edit', (req, res, next) => {

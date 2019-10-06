@@ -15,10 +15,13 @@
 
 <a href="/perfil/users"> <button>PERFIL USERS</button></a>
 {{!-- Apenas BOSS pode visualizar esse botao --}}
+{{#if isBoss}}
 <a href="/adm/add"> <button>ADD USERS</button></a>
+{{/if}}
 {{!-- Apenas TA pode visualizar esse botao --}}
-<a href="/course/add"> <button>COURSE</button></a>
-
+{{#if isTA}}
+<a href="/course/add"> <button>ADD COURSE</button></a>
+{{/if}}
 <br><br>
 <hr>
 

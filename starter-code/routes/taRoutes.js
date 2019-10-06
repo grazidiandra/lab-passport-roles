@@ -15,7 +15,7 @@ function checkRoles(role) {
 taRoutes.get('/add', checkRoles('TA'), (req, res, next) => {
   Course.find()
     .then(arrCourse => {
-      res.render('ta/course', {arrCourse});
+      res.render('ta/course', {arrCourse, isTA: true});
     })
     .catch(err => console.log(`error: ${err}`));
 });
